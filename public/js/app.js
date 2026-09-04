@@ -72,7 +72,14 @@ async function apiCall(endpoint, { method = "GET", body = null, isFormData = fal
       body: fetchBody
     });
 
+    console.log("ENDPOINT:", endpoint);
+    console.log("METHOD:", method);
+    console.log("BODY:", fetchBody);
+    console.log("STATUS:", res.status);
+
     const data = await res.json().catch(() => ({}));
+
+    console.log("RESPONSE:", data);
 
     if (!res.ok) {
       if (res.status === 401) {
